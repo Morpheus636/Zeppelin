@@ -36,9 +36,9 @@ services:
       args:
         DOCKER_USER_UID: ${DOCKER_USER_UID:?Missing DOCKER_USER_UID}
         DOCKER_USER_GID: ${DOCKER_USER_GID:?Missing DOCKER_USER_GID}
-    depends_on:
-      mysql:
-        condition: service_healthy
+#    depends_on:
+#      mysql:
+#        condition: service_healthy
     volumes:
       - ./:/zeppelin
     command: |-
@@ -64,8 +64,8 @@ services:
         DOCKER_USER_UID: ${DOCKER_USER_UID:?Missing DOCKER_USER_UID}
         DOCKER_USER_GID: ${DOCKER_USER_GID:?Missing DOCKER_USER_GID}
     restart: on-failure
-#    depends_on:
-#      - prepare_backend
+    depends_on:
+      - prepare_backend
     volumes:
       - ./:/zeppelin
     command: ["/bin/bash", "/zeppelin/docker/production/start-bot.sh"]
