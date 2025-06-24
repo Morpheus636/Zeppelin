@@ -1,5 +1,4 @@
-version: '3'
-name: zeppelin-lightweight
+version: '3.3'
 services:
   migrate:
     build: &build
